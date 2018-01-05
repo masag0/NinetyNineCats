@@ -1,0 +1,21 @@
+<%= render 'shared/errors' %>
+
+<% if action == :sign_up %>
+  <% action_url = users_url %>
+  <% button_msg = 'Sign Up' %>
+<% else %>
+  <% action_url = session_url %>
+  <% button_msg = 'Log In' %>
+<% end %>
+
+<form class="" action="<%= action_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+  
+  <label for="username">Username</label>
+  <input id="username" type="text" name="users[username]" value="">
+
+  <label for="password">Password</label>
+  <input type="password" name="users[password]" value="">
+
+  <input type="submit" name="" value="<%= button_msg %>">
+</form>
